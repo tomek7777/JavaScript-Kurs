@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // zmienna temperatury, wartosci co 10, od -10.
+        
+        // wersja z if else
+
+        let temperatura = 30;
+
+        if (temperatura == -10) {
+            console.log("B.zimno");
+        } else if (temperatura == 0) {
+            console.log("Zimno")
+        } else if ( temperatura == 10) {
+            console.log("Wiosna");
+        } else if (temperatura == 20) {
+            console.log("Lato");
+        } else if (temperatura == 30){
+            console.log("Goraco")
+        } else if (temperatura == 40) {
+            console.log("B.goraco");
+        } else if (temperatura < -10)  {
+            console.log("Zostajemy w domu");
+        } else if (temperatura >40 ) {
+            console.log("Zostajemy w domu");
+        }
+
+        let temperatura1 = 20;
+
+        switch (temperatura1) {
+            case -10:
+            console.log("B.zimno")
+            break;
+            case 0:
+            console.log("zimno")
+            break;
+            case 10:
+            console.log("wiosna")
+            break;
+            case 20:
+            console.log("lato")
+            break;
+            case 30:
+            console.log("goraco")
+            break;
+            case 40:
+            console.log("B.goraco")
+            break;
+            default:
+                console.log("Zostajemy w domu")
+        }
+        
+
+
+    </script>
+</body>
+</html>

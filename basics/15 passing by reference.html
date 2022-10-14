@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = 10;
+        let info = data; // w typach prostych np liczby/tekst mamy kopiowanie
+        console.log(data, info);
+        data = 33;
+        console.log(data, info);
+
+
+        let obj = {
+            a: 10
+        };
+
+        let test = obj;
+        console.log(obj.a, test.a);
+        obj.a = 69;
+        console.log(obj.a, test.a);
+
+        //typy prsote sa przekazywane przez wartosc
+        //czyli sa to ich kopie np. liczby, string itd
+        function something(a, b) {
+            a = 90;
+            return a + b;
+        }
+        let someA = 23;
+        let someB = 25;
+
+        console.log(something(someA, someB));
+
+        console.log(someA, someB); 
+
+        let objA = {
+            a: 50
+        };
+
+        let objB = {
+            b: 40
+        };
+
+        function boo(obj1, obj2) {
+            objA.a = 30;
+            return objA.a + objB.b;
+        }
+        console.log(boo(objA, objB));
+
+        console.log(objA.a, objB.b);
+
+
+        let arrTest = [];
+        let arr = [1, 3, 5, 6];
+        console.log(arr[1]);
+
+        function checArr(arr) {
+            arr[0] = 99; //tablica to obiekt wiec ta wartosc bedzie nadpisana
+            arr.push(777); // dodanie elementu na koniec tablicy
+
+        }
+
+        checArr(arr);
+        console.log(arr); // [99, 1, 3, 5, 6, 777]
+                        // tablica zostala zmodyfikowana poniewaz jest obiektem
+    </script>
+</body>
+</html>

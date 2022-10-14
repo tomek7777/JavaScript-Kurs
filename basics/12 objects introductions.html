@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let num = 10;
+
+        // utworzenie obiektu w notacji literalu
+        let car1 = {
+            brand : "Audi",
+            model : "A4B6",
+            year : 2004
+        };
+
+        console.log(car1);
+        console.log(car1.brand);
+        console.log(car1.year);
+
+        let rocket = {
+            brand : "NASA",
+            model : "XXX",
+            topSpeed : 999999,
+
+            printInfo: function() {
+                console.log(this.brand, this.model, this.topSpeed);
+            },
+
+            printTopSpeed: function() {
+                console.log("Maksymalna predkosc to: ", this.topSpeed)
+            }
+        }
+
+        rocket.printInfo();
+        rocket.printTopSpeed();
+    </script>
+</body>
+</html>
