@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <button id="button1">click me</button>
+        <button id="button2">click me 2</button>
+
+    <script>
+        function test () {
+
+        }
+
+        let test2 = function () {
+            // funckja anonimowa bo nie ma nazwy przypisania
+            // do zmiennej test2
+        }
+
+
+        function test3(c, callback) {
+            console.log("funckja test 3: ", c);
+            callback(c);
+        }
+
+        function test4(som) {
+            console.log("funkcja test4: ", som);
+        
+        }
+
+        test3(9, test4);
+        //test3: 9
+        //test4: 9
+
+        function ok(num) {
+            console.log("Liczba ok, num: ", num)
+        }
+
+        function bad (num) {
+            console.log("Liczba zla, num: ", num)
+        }
+
+        function PositiveNum(n, resolve, error) {
+            if (n >= 0) {
+                //resolve(n)
+                resolve(n)
+            } else {
+                error(n)
+                //error(n);
+            }
+
+        }
+        PositiveNum(-20, ok, bad);
+        PositiveNum(0, ok, bad);
+        PositiveNum(4, ok, bad);
+
+
+
+        //podpiecie funkcji callback pod click
+
+        function buttonClicked(event) {
+            console.log("Przycisk klikniety!");
+        }
+
+        // podpiecie callbacka czyli funkcji buttonCliked pod zdarzenie
+        document.getElementById("button1")
+        .addEventListener("click", buttonClicked);
+
+        document.getElementById("button2")
+        .addEventListener("click", function () {
+            console.log("button2 clicked@");
+        })
+    </script>
+</body>
+</html>

@@ -29,6 +29,29 @@
         updateAdress(user, "0001", "wwa", "pl")
         console.log(user);
 
+
+
+
+        let cars = {
+            marka: "Audi",
+            models: {
+                model1: null,
+                model2: null,
+                model3: null
+            }
+        }
+
+        console.log(cars);
+
+        function updateModels(model1,model2,model3) {
+            cars.models = {
+                model1: "Rs6",
+                model2: "A4B9",
+                model3: "A8"
+            }
+        }
+        console.log(cars, updateModels);
+
     </script>
 </body>
 </html>
