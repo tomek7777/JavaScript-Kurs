@@ -10,11 +10,16 @@
     <button id="button1">double click me</button>
 
     <script>
-        function dblClick(event) {
+        function dblButtonClicked(event) {
             console.log("button double clicked");
+
+            // event to obiekt zdarzenia, informacje o zdarzeniu
+            console.log(event);
+            console.log(event.target);
+            console.log(event.target.id);
         }
 
-        document.getElementById("button1").addEventListener("dblclick", dblClick);
+        document.getElementById("button1").addEventListener("dblclick", dblButtonClicked);
         
     </script>
 
