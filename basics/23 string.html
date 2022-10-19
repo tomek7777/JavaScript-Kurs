@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // string - literaly znakowe lub literaly lanuchowe
+        // ciag znakow UTF-16
+
+        const s1 ='To jest tekst';
+        const s2 = "to tez jest tekst";
+
+        const num = 69;
+        // literal szablonu
+        const s3 = `
+        string w 
+        wielu
+        liniach ${num}
+        wyrazenie ${1 + 2 + 3}
+        `;
+        console.log(s3);
+        console.log("tekst".length) // liczba znakow
+
+        console.log ("Tekst"[4]); // t - bo 4 indeks "Tekst" to t
+        console.log(s3[s3.length - 1]); // ostatni indeks wyrazenia
+        console.log(s3.charAt(10)); // 10 znak z ciagu
+
+        console.log(s3.charCodeAt(10)); 
+
+        // wyszukiwanie slow tekscie
+        let simpleText = "Ala ma kota, kot ma Ale";
+        let pos = simpleText.indexOf("kot");
+        console.log(pos);
+
+        pos = simpleText.lastIndexOf("ma");
+        console.log(pos);
+
+        //drugi argument - od ktorego miejsca bedzie szukana fraza
+        pos = simpleText.indexOf("ma", 6);
+
+        console.log("    abcde     ".trim()); //
+
+        //toUpperCase();
+        console.log("ala".toUpperCase());// ALA
+        //toLowerCase();
+        console.log("AUTO".toLowerCase());
+
+        // łączenie ciagow znakow
+
+        const str1 = "something";
+        const resultStr = "text" + str1;
+        console.log(resultStr);
+
+        let str2 = "test".concat("other test");
+        console.log(str2);
+
+        // pobierania fragmentow z string
+        let str5 = "01234321";
+        console.log(str5.slice(2));
+        console.log(str5.slice(4, 8))
+
+
+    </script>
+</body>
+</html>

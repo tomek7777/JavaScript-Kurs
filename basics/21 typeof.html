@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let data = 15;
+        let info = typeof data;
+        console.log(info);
+
+        if (info == "number") {
+            console.log("data zawiera liczbe");
+        }
+
+        data = "tekst";
+
+        if (typeof data == "number"){
+            console.log("data ma liczbe");
+        } else if (typeof data =="string") {
+            console.log("data ma string");
+        }
+
+        // zwracane wartosci przez typeof
+        console.log(typeof 20); //number
+        console.log(typeof "tekst"); //string
+        console.log(typeof "40"); //string
+        console.log(typeof true); //boolean
+        console.log(typeof {}); //object
+        console.log(typeof {a:5}); // objcet
+        console.log(typeof undefined);
+        console.log(typeof null) // object - wyjatkowy przypadek
+        console.log(typeof function() {}) // function
+        console.log(typeof []);
+        console.log(typeof Symbol() ); //symbol
+        console.log(typeof 1n); //bigint
+
+    </script>
+</body>
+</html>

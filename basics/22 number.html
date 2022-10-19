@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // number - typ wartosci zmiennoprzecinkowy 64bitowy
+        // pozwala na zapis liczb calkowitych lub dziesietnych
+
+        let a = 1;
+        let b = 1.456;
+        let c = 0xf
+        const d = 0.45;
+
+        // maksymalna bazpieczna liczba calkowita dodatnia i ujemna
+        console.log( Number.MAX_SAFE_INTEGER ); // maksymalna liczba calkowita
+        console.log( Number.MIN_SAFE_INTEGER); // min calkowita
+
+        console.log(Number.isSafeInteger(90071992547409912)); //false
+        console.log(Number.isSafeInteger(9007199254740991)); //true
+
+        // NaN - not a number - specjalna wartosc ktora okresla
+        // ze cos nie jest liczba
+
+        const someNan = 0/0;
+        console.log(someNan);
+        console.log(Math.sqrt(-1));
+
+        //parseInt() - konwersja lancucha znakow na liczbe
+        let someNum = parseInt ("12.345");
+        console.log(someNum);// 12 liczba calkowita
+
+        console.log(isNaN(0/0)); //true bo 0/0 daje NaN
+        console.log(Number.isNaN(67)); //fals - jest liczba
+
+    </script>
+</body>
+</html>

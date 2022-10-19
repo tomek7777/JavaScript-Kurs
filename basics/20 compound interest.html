@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #calc {
+            display: grid;
+            grid-template: auto auto;
+            gap: 5px;
+            max-width: 350px;
+        }
+
+        .result {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="calc">
+        <label for="">Katpiał:</label> 
+        <input type="text" id="capital" value="1000">
+
+        <label for="">Oprocentowanie:</label> 
+        <input type="text" id="rate" value="0.04">
+
+        <label for="">Okres kapitalizacji:</label> 
+        <input type="text" id="months" value="12">
+
+        
+        <label for="">Okres lokaty:</label> 
+        <input type="text" id="years" value="5">
+
+        <span></span> <button id="calculate">Oblicz</button>
+
+        <label for="" class="result">Wartość końowa:</label> 
+        <input type="text" id="result-value">
+
+
+    </div>
+
+    <script>
+        // capital * Math.pow((1+(0.04/12)) , (12*5) )
+
+        const inputCapital = document.getElementById("capital");
+        const inputRate = document.getElementById("rate");
+        const inputM = document.getElementById("months");
+        const inputY = document.getElementById("years");
+        const inputResultValue = document.getElementById("result-value");
+        
+        /*
+        let capital = inputCapital.value;
+        let rate = inputRate.value;
+        let m = inputM.value; //liczba miesiecy co ile kapitalizacja
+        let y = inputY.value; // na ile lat lokata
+
+        let finalMoney = capital * Math.pow( (1 +(rate/m)), (m * y));
+        console.log(Math.ceil(finalMoney));
+        */
+
+        function calculateCompoundInterest(capital, rate, m, y) {
+            return capital * Math.pow( (1 +(rate/m)), (m * y));
+        }
+
+        document.getElementById("calculate").addEventListener("click", function () {
+            let capital = inputCapital.value;
+            let rate = inputRate.value;
+            let m = inputM.value; //liczba miesiecy co ile kapitalizacja
+            let y = inputY.value; // na ile lat lokata
+
+            let result = calculateCompoundInterest(capital, rate, m, y);
+            inputResultValue.value= result.toFixed(2);
+
+        })
+
+    </script>
+</body>
+</html>
