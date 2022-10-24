@@ -1,0 +1,12 @@
+#calc {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;  
+  max-width: 450px;
+  text-align: right;
+  
+};
+
+.result {
+    font-weight: bold;
+}
