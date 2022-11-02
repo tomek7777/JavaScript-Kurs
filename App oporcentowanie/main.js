@@ -24,5 +24,5 @@ document.getElementById("calculate").addEventListener("click", function () {
     let years = inputYears.value;
 
     let finalMoney = calculateCompoundInterest(capital, rate, mCapital, years);
-    inputfinalMoney.value = finalMoney.toFixed(2);
+    inputfinalMoney.value = finalMoney.toFixed(2 );
 });
