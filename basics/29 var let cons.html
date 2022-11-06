@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var data = 5; // zmienna var zakres funkcyjny
+        // przyklad
+        if ( 1 == 1) {
+            var text = "text";
+        }
+        console.log(text);
+
+        function foo() {
+            var someTest = 35;
+        };
+        foo();
+        // console.log(someTest); //someTest is not defined
+        // var ma zakres funkcyjny czyli ogranicza sie do 
+        // kodu funkcji, zmienna var nie jest widoczna poza funkcja
+
+        let info = 10 // zmienna ktora mozna nadpisac
+                      // zasieg blokowy
+
+        if ( 1 == 1 ) {
+            let text2 = "text2";
+        }
+        //console.log(text2); // let i const niewidoczne poza funckja
+
+        const element = 25 // stala, nie mozna zmieniac 
+                           // zakres blokowy
+    </script>
+</body>
+</html>

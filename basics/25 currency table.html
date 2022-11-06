@@ -6,7 +6,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+        background: #363d57;
+    }
+
+    .container {
+        width: 400px;
+        background: white;
+        border-radius: 10px;
+
+    }
+
+    .container h3 {
+        text-align: center;
+    }
+
+    .rate {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 5px;
+        margin: 10px;
+        border-bottom: 1px dotted black
+    }
+</style>
+
 <body>
-    
+
+    <div class="container">
+        <h3>Table NBP nr: <span id="date"></span></h3>
+        <div id="data-table">
+            
+        </div>
+    </div>
+
+    <script>
+
+        
+
+        startUp();
+
+        async function startUp() {
+            const apiUrl = "https://api.nbp.pl/api/exchangerates/tables/a?format=json";
+            const response = await fetch(apiUrl);
+            const data = await response.json(); 
+            console.log(data);
+
+            processData(data[0]);
+        }
+
+        function processData(data) {
+            console.log(data);
+
+
+            const code = data.effectiveDate;
+            const table = data.table; //A
+            const tableNum = data.no;            
+            const ratesArr = data.rates;
+            
+            const dataTableDiv = document.getElementById("data-table");
+
+            document.getElementById("date").innerHTML = tableNum;
+
+            ratesArr.forEach(function (el) {
+                const code = el.code; // usd
+                const currency = el.currency; // dolar amerykanski
+                const price = el.mid; // 3.98
+                
+                addRateContent(code, currency, price, dataTableDiv);
+            });
+        }
+
+        function addRateContent(code, currency, price, dataTableDiv) {
+            const el = document.createElement("div");
+            el.classList.add("rate");
+
+            el.innerHTML = `
+                <div> ${code} </div>
+                <div> ${currency} </div>           
+                <div> ${price} zł </div>   
+            `;
+            
+            dataTableDiv.append(el);
+        }
+        
+    </script>
+
+
 </body>
 </html>
