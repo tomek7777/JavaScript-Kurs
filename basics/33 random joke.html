@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background: #9BF0E9;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .joke-container {
+            width: 100%;
+            max-width: 700px;
+            padding: 25px 30px;
+            border-radius: 10px;
+            background: #61F2D2;
+        }
+
+        #joke-text {
+            font-size: 2rem;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        button {
+            padding: 0.5rem 2rem;
+            border: none;
+            border-radius: 15px;
+            background: #181818;
+            cursor: pointer;
+            font-size: 1.3rem;
+            color: #fff;
+        }
+
+        button:hover {
+            filter: brightness(200%);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="joke-container">
+        <div class="joke-tekst">
+            <span id="joke"></span>
+        </div>
+        <div class="button-container">
+            <button id="next-joke">Kolejny joke</button>
+        </div>
+    </div>
+    
+
+    <script>
+
+        const randomJokeGenerator = {
+            apiUrl: "https://api.chucknorris.io/jokes/random",
+            jokesArr: [],
+            jokeSpan: document.getElementById("joke"),
+
+            init: function() {
+                console.log("App start");
+                this.getNextJoke();
+                this.addListener();
+            },
+
+            getNextJoke: async function() {
+                const response = await fetch(this.apiUrl);
+                const data = await response.json();
+                
+
+
+                this.jokesArr.push(data);
+                this.updateUIWithJoke(data);
+            },
+
+            updateUIWithJoke: function(data){
+                const jokeStr = data.value;
+                console.log(jokeStr);
+                this.jokeSpan.innerHTML = jokeStr;
+            },
+
+            addListener: function() {
+                document.getElementById("next-joke")
+                    .addEventListener("click", (event) => {
+                        console.log("click");
+                        this.getNextJoke();
+                    });
+            }
+
+
+
+        };
+
+      randomJokeGenerator.init();
+    </script>
+</body>
+</html>

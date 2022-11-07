@@ -45,7 +45,8 @@
 
         school.printSchoolInfo();
 
-
+        // literał obiektu
+        
         function generateStudent(name, age) {
             return {
                 name: name,
@@ -86,6 +87,34 @@
         const bus1 = new Bus("Mercedes", "Sprinter", 25);
         bus1.printName();
         console.log(bus1);
+        bus1.model = "x4";
+        bus1.printName();
+
+        // brak new, zasmieca globalna przestrzen nazw
+        // const bus2 = Bus("Solaris", "traffic", 80);
+        // console.log(bus2);
+
+
+        // funkcja kostruujaca object
+
+        let plane = new Object();
+        plane.brand = "Uboot";
+        plane.model = 707;
+        plane.seats = 100;
+        console.log(plane);
+
+
+        // metoda create 
+        let brand = {brand: "Audi", country: "Poland"};
+        let car = Object.create(brand);
+        car.model = "Rs4";
+        console.log(car);
+        let car2 = Object.create(brand);
+        car2.model = "A4B6";
+        console.log(car2);
+
+
+
 
 
     </script>
