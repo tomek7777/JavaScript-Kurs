@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //function statment
+        function foo(arg1, arg2) {
+            console.log(arg1, arg2);
+        }
+
+        foo("test1", "test2");
+
+        // wyrazenie funkcyjne | function expression
+
+        const addNums = function(a, b) {
+            return a + b;
+        }
+
+        console.log(addNums(5, 10));
+        console.dir(addNums);
+        console.dir(addNums.name);
+        console.dir(addNums.length);
+
+        addNums.something = "test";
+        console.dir(addNums.something);
+
+        let globalVariable = "testtest"; // zmienne globalne mozna wykorzystywac w funkcji
+
+        // scope - zakres zmiennych w funkcji
+        function testScope(arg1) {
+            //"use strict"
+            // badNews = "1kpln"; // use stric zapobiega globalnym zmiennym w funkcji
+            let localVariable = 10;
+            console.log(arg1, localVariable, globalVariable);        
+        };
+
+        testScope(20);
+
+        function testFunction1() {
+            const data = 10;
+
+            function test2(arg) {
+            let data = 99;
+            return arg + data;
+        };
+        
+        const result1 = test2(100);
+        console.log("Wynik: ", result1);
+
+        const result2 = test2(200);
+        console.log("Wynik2: ", result2);
+
+        }
+        testFunction1();
+
+    </script>   
+</body>
+</html>
