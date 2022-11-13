@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Fox API</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background: rgb(85, 46, 46);
+            overflow: hidden;
+        }
+        .container {
+            text-align: center
+        }
+        
+        #img-content{
+            height: 80vh;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://www.wykop.pl/cdn/c3201142/comment_1585993201UCpeA1UQTWjHag4dbjOGs3.jpg" id="img-content">
+        <div id="fact"></div>
+
+    </div>
+
+    <script>    
+    window.onload = function () {
+        getContent();
+
+        document.addEventListener("keyup", function(event){
+            if (event.code == "Space") {
+                getContent();
+            }
+        })
+
+
+    }
+    
+     
+    
+    async function getContent() {
+        const apiURL = "https://some-random-api.ml/animal/raccoon";        
+        const data = await fetch(apiURL);
+        const dataJson = await data.json();
+        
+        processData(dataJson);
+        
+
+    }
+
+    function processData(data) {
+        const imgSrc = data.image;
+        const fact = data.fact;
+
+        updateDOM(imgSrc, fact)
+    }
+
+    function updateDOM(imgSrc, fact) {
+        const img = document.getElementById("img-content");
+        const factDiv = document.getElementById("fact");
+
+        //img.src = imgSrc;
+        factDiv.innerHTML = fact; 
+
+
+    }
+    
+
+    
+
+    
+    </script>
+</body>
+</html>

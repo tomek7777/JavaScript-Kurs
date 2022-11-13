@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        let user = {
+            name: "Ania",
+            adress: {
+                country: "Poland",
+                city: "Kielce",
+                street: "Zagorska"
+            },
+            rank: "Guest"           
+        };
+
+        function promoteToAdmin(user) {
+            if (!user) return;
+            if (user.name && user.rank) {
+                user.name = "Kasia";
+                user.rank = "Admin";
+            };
+
+            let department = user.department || "IT";
+            console.log(user.name, "promoted to admin in", department);
+        };
+
+
+
+        promoteToAdmin(user);
+        console.log(user);
+    </script>
+</body>
+</html>
