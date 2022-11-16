@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let car = {
+            brand: "Audi",
+            print: function(topSpeed, country){
+                console.log(this.brand, topSpeed, country);
+
+            }
+       
+        }
+        car.print(270, "DEE");
+
+
+        let car2 = {
+            brand: "BMW",
+            country: "DE",
+            topSpeed: 300
+        }
+
+        car.print.call(car2, 300, "DE");
+        car.print.apply(car2, [300, "DE"]);
+
+        let printCar2 = car.print.bind(car2, 300, "DE");
+        printCar2();
+    </script>
+    
+</body>
+</html>

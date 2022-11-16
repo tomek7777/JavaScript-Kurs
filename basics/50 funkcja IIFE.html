@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- funkcja natychmiastowa anonimowa -->
+    <script>
+        const clock = (function(){
+
+            let clockInfo = () => {
+                const date = new Date();
+                console.log(date.toLocaleTimeString());
+            };
+
+            let startClock = () => {
+                setInterval(() => {
+                    clockInfo();
+                }, 1000);
+            }
+
+            return {
+                start: startClock
+            }
+
+        })();
+
+        clock.start();
+    </script>
+</body>
+</html>

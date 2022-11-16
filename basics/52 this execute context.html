@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        console.log(this); //window
+        console.log(this === globalThis); //true
+
+        function foo() {
+            console.log("foo this:", this)
+        }
+        foo(); // foo, window
+
+        function bar() {
+            "use strict"
+            console.log("bar this:", this)
+        }
+        bar(); // bar this, undefind
+
+        let obj = {
+            name: "Zosia",
+            bar: function() {                
+                "use strict"
+
+                console.log("bar this:", this)
+            }
+        }
+        obj.bar(); //{name: 'Zosia', bar: f}
+
+        let car = {
+            name: "mustang",
+            print: function(arg) {
+                console.log(this.name, arg)
+            }
+            
+        }
+        car.print(2010);
+        let citroen = {name: "Xara"};
+        car.print.call(citroen, 2004); // ...(nazwa zmiennej, arg)
+
+    </script>
+</body>
+</html>
