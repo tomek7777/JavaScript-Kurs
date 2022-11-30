@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body id="body">
+    <style>
+        body *{
+            margin: 10px;
+            border: 2px solid goldenrod;
+        }
+    </style>
+    
+    <script>
+        window.addEventListener("load", function() {
+        /*let input = document.getElementById("input");
+        input.onclick = function inputClicked(event) {            
+            console.log("input klikniety")       
+        };
+
+        let body = document.getElementById("body");
+        
+        function mousemove(event){
+            console.log(event);
+            console.log("mousemove")
+        };
+        body.addEventListener("mousemove", mousemove);*/
+
+        for( let el of document.querySelectorAll("*")) {
+            el.addEventListener("click",
+                e => console.log("Capturing: " + el.tagName), true );
+            el.addEventListener("click",
+                e => console.log("Bubbling: " + el.tagName));
+            };
+    });
+    </script>
+
+    <p id="p">Paragraf
+        <form id="form" action="">Formularz
+            input: <input id="input" type="text">
+        </form>
+    </p>
+
+</body>
+</html>
