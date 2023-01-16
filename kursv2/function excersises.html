@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //funkcja substract
+
+        function substract(a, b) {
+            let c = a - b;
+            console.log("Wynik odejmowania: ", c)
+        }
+
+        substract(10, 5);
+
+        let substract2 = function(a, b) {
+            return a - b;
+        } 
+
+        let resultSubstract = substract2(10, 20)
+        console.log("wynik odejmowania2:", resultSubstract);
+
+        //funckja do obliczania wartości bezwzględnej
+        function absoluteValue(resultSubstract) {
+            if(resultSubstract < 0) {
+                console.log("wynik: ", -resultSubstract)
+            } else {
+               console.log("Wynik: ", resultSubstract)  
+            }
+        }
+        
+        absoluteValue(resultSubstract);
+        
+    </script>
+</body>
+</html>

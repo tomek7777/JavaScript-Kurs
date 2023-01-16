@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //funkcja 
+        function add(a, b) {
+            let c = a + b
+            console.log("Wynik: ", c)
+        }
+        
+        //wywołania funkcji wraz
+        // z uzupełnionymi argumentami
+        add(10, 15);
+
+        let x = 6;
+        let y = 45;
+        //wyrażenie warunkowe
+        if(x > 5){
+            add(x, y);
+        }
+        // funkcja zwracająca a*b
+        function multiply(a, b) {
+            return a * b;
+        }
+
+        let result = multiply(5, 10);
+        console.log("Wynik: ", result);
+
+
+        // wyrażenie funkcyjne - function expression
+        let division = function (a, b) {
+            return a/b;
+        }
+
+        let divisionResult = division(12, 4);
+        console.log("Wynik dzielenia: ", divisionResult);
+
+        //zmienne poza blokiem funckji są zmiennymi globalnymi
+        //zmienne w bloku funkcji są lokalnymi 
+
+        //dowod
+        //funkcja moze odczytywac zarowno
+        // zmienne lokalne i globalne
+        // jezeli zmienna lokalna i globalna ma taka
+        // samą nazwe funkcja odczytuje lokalna 
+        let data = "chuj";
+        let text = "hello";
+        function test() {
+            let data = 50;
+            console.log("wartosc data: ", data);
+            console.log("wartosc text: ", text);
+        }
+
+        test();
+        console.log(data);
+
+
+
+    </script>
+</body>
+</html>

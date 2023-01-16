@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // przy przekazywaniu prostych danych nastepuje ich kopiowanie
+        let data = 10;
+        let info = data;
+        console.log(data, info);
+        data = 50;
+        console.log(data, info); 
+
+        let object = {
+            a: 10
+        };
+
+        let test = object;
+
+        console.log(object.a, test.a);
+        object.a = 45;
+        console.log(object.a, test.a);
+
+        function something(a, b) {
+            a = 50;
+            return a + b;
+        }
+
+        let someA = 10;
+        let someB = 50;
+        console.log(something(someA, someB)); // = 100 poniewaz parametr a zostal
+                                              // przypisany w funkcji i someA go nie nadpisuje
+        
+        let objA = {
+            a: 30
+        };
+
+        let objB = {
+            b: 50
+        };
+
+        function foo(obj1, obj2) {
+            objA.a = 50;
+            return objA.a + objB.b
+        }
+        console.log(foo(objA, objB)); //=100 wartosc obiektu objA zostala zmieniona na 50
+                                      // podczas wywałaniu funkcji
+
+        console.log(objA.a, objB.b); // 50, 50 wartosc 50 w obiekcie została nadpisana
+                                     // z poziomu wywołanej funkcji
+                                     // czyli obiekty nie sa przekazywane przez wartosc
+
+        let arrTest = [];
+        let arr = [1, 2, 3, 10, 20];
+
+        function checkArr(arr){
+            arr[0] = 99;
+            arr.push(8);
+        }
+        checkArr(arr);   //[99, 1, 2, 3, 10, 20, 8]
+        console.log(arr);// tablica została zmodyfikowana
+                         // poniewaz jest obiektem
+
+        
+
+
+    </script>
+</body>
+</html>
