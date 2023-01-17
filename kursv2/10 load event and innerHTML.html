@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        function setContentToHtml(id, content) {
+            let div = document.getElementById(id);
+            div.innerHTML = content;
+            //console.log(div) 
+        }
+        window.onload = function(){
+            setContentToHtml("content2", "Hello World!");
+        }
+        window.addEventListener("load", function() {
+            console.log("load event");
+            setContentToHtml("content1", "<b>Witajcie w naszej bajce!</b>")
+        });
+       
+    </script>
+
+    <div id="content2"></div>
+    <div id="content1"></div>
+
+
+</body>
+</html>
