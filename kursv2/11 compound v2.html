@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #calculator{
+            display: grid;
+            grid-template-columns: auto, auto;
+            width: 250px;
+            grid-gap: 5px;
+        }
+        body{
+            background-color: beige;
+        }
+        #title{
+            font-size: 50px;
+            padding: 10px;
+            display: flex;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="title">Kalkulator Oprocentowania</div>
+    
+    <div id="calculator">
+        <label for="">Kapitał:</label>
+        <input type="text" id="capital" value="">
+        <label for="">Oprocentowanie:</label>
+        <input type="text" id="rate" value=""> 
+        
+        <label for="">Okres kapitalizacji:</label>
+        <input type="text" id="n" value="">
+        <label for="">Okres Lokaty:</label>
+        <input type="text" id="t" value="">
+        <button id="calc"><b>Oblicz</b></button>
+        <label for=""><b>Wartość Końcowa:</b></label>
+        <input type="text" id="finalMoney" value="">
+    </div>
+
+    <script>
+
+        const inputCapital = document.getElementById("capital");
+        const inputRate = document.getElementById("rate");
+        const inputN = document.getElementById("n");
+        const inputT = document.getElementById("t");
+        const inputFinalMoney = document.getElementById("finalMoney");
+
+         function calculateCompoundIntrest(capital, rate, n, t) {
+            return capital * Math.pow((1+(rate/n)), n * t);
+        }
+
+        document.getElementById("calc").addEventListener("click", function(){
+            let rate = inputRate.value;
+            let capital = inputCapital.value;
+            let n = inputN.value;
+            let t = inputT.value;
+
+            let result = calculateCompoundIntrest(capital, rate, n, t);
+            inputFinalMoney.value = result.toFixed(2);
+        });
+    </script>
+</body>
+</html>
