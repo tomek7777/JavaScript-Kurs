@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // literal obiektu
+        let school = {
+            name: "WSEI",
+            numStudents: "2000",
+            adress: {
+                country: "Poland",
+                city: "Kraków"
+            },
+            students: [
+                { name: "Ania", age: 20},
+                { name: "Basia", age: 21},
+                { name: "Kasia", age: 22}
+            ],
+
+            printSchoolInfo: function(){
+                console.log(`
+                Studia: ${this.name}
+                ilość studentów ${this.numStudents}`);
+                
+                console.log(`Adress: ${this.adress.city}`);
+                
+                this.students.forEach(function(student){
+                    console.log(`Student: ${student.name}, wiek: ${student.age}`)
+                });
+
+                function generateStudent(age, name) {
+                    return {
+                        name: name,
+                        age: age,
+                        adress: {
+                            country: "Florida",
+                            city: null,
+                            street: null
+                        },
+                        getName: function(){
+                            return this.name;
+                        }
+                    };
+                }
+
+                const student1 = generateStudent("Sebiorz", 23);
+                const student2 = generateStudent("Pawel", 22);
+                console.log(student2);
+            }
+            
+        }
+        school.printSchoolInfo();
+
+        // funkcje konstruujące
+        // z wykorzystaniem New
+
+        let date1 = new Date(2030, 11, 12);
+        console.log(date1);
+        
+        function Bus(brand, model, numSeats ){
+            this.brand = brand;
+            this.model = model;
+            this.numSeats = numSeats;
+            this.country = "Poland";
+
+            this.printName = function() {
+                console.log(`${this.brand} 
+                ${this.model} 
+                ${this.numSeats}`);
+            }
+
+           
+        }
+        const bus1 = new Bus("Solaris", "city", 75);
+        bus1.printName();
+        bus1.model = "x5";
+        bus1.printName(); 
+
+    </script>
+</body>
+</html>

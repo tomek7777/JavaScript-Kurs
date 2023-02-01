@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            name: "Ola",
+            surname: "Kowalska",
+            printName: function() {
+                console.log(this.name);
+            }
+        };
+
+        person.name = "Basia";
+        person.printName();
+
+        const newProp = "age";
+        person[newProp] = 26;
+        person.printAge = function() {
+            console.log(this[newProp]);
+        }
+        person.printAge();
+
+        if (newProp in person) console.log(person[newProp]); //true
+        if (person.hasOwnProperty(newProp)) console.log(person[newProp]); //true
+        if ("Test" in person) console.log(person["test"]); //false\
+
+        //referencje do obiektów
+        let obj1 = {name: "Ford"};
+        let obj2 = obj1; // przypisujemy referencję
+
+        obj2.name = "Supra";
+        console.log(obj1); //Supra
+
+        console.log(obj1 === obj2); //true, oba obiekty wskazują na ten sam
+                                    // adres w pamięci
+        
+        const obj3 = obj2;
+        console.log(obj3); // supra
+
+        obj3.name = "Citroen";
+        console.log(obj3); //citroen
+        console.log(obj1); //citroen
+
+        // enumeracja właściwości obiektu
+        let o =  { a: 1, b: [], c: "teksst", d: 99 };
+
+        for (prop in o){
+            console.log(prop, o[prop]);
+        }
+
+        const objKeys = Object.keys(o);
+        console.log(objKeys);
+        objKeys.forEach(function(el){
+            console.log(el);
+        }) // a b c d
+
+        const objValues = Object.values(o);
+        console.log(objValues);
+        objValues.forEach(function(v){
+            console.log(v);
+        })// 1, [], "tekst", 99
+
+        const objEntries = Object.entries(o);
+        console.log(objEntries);
+        for( [key, value] of objEntries ){
+            console.log(key, value);
+        }
+
+        const sourceObj = {name: "Kasia", city: "WWa", arr:[1,2,3] };
+
+        let result = Object.assign({surname: "Kowal"}, sourceObj);
+        console.log(result);
+        console.log( sourceObj === result);
+        console.log(result.name === sourceObj.name);
+
+        let result2 = Object.assign({surname: "Żenia"}, sourceObj, {street: "Sereno Fenn'a"});
+        console.log(result2);
+
+
+        // getter i setter 
+
+        const car1 = {
+            model: "Porsche",
+            setModel: function(model){
+                if(typeof model === "string") this.model = model;
+            },
+            getModel: function(){
+                return this.model;
+            }
+        }
+        car1.setModel("Fiat");
+        console.log(car1.model);
+        car1.setModel = 925;
+        console.log(car1.model);
+    
+        const user = {
+            _name: "ola",
+
+            set name(newName){
+                if (typeof newName === "string") {
+                    this._name = newName;
+                }
+            },
+            get name() {
+                return this._name;
+            },
+            printName(){
+                console.log(this._name);
+            }
+        }
+
+        user.name = 121;
+        user.printName();
+    </script>
+</body>
+</html>
