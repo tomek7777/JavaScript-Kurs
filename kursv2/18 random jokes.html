@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-    <div id="tekst">Joke</div>
+    <div id="tekst">joke</div>
     <script>
         
 
@@ -18,14 +18,17 @@
         async function startApp(){
             const apiUrl = "https://api.chucknorris.io/jokes/random";
             const resposne = await fetch(apiUrl);
-            const data = await resposne.json();
-            console.log(data.value);
-            
-            this.value = content;
-            let content = document.getElementById("tekst") 
+            const data = await resposne.json();           
+            createJoke(data.value, document.querySelector("#tekst"));
+             
+        }
 
-            
+        function createJoke(data){
+            console.log(data)
+            const joke = data.value;
 
+            const div = document.querySelector("#tekst");
+            div.innerHTML = joke;
         }
           
         

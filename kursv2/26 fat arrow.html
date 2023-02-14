@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let test = (a, b, c) => a + b + c;
+        console.log(test(10,10,10));
+
+        let print = a => console.log(a)
+        print("Zoja");
+
+        let getObj = () => ( {name: "olka"});
+        console.log(getObj());
+
+        let getObj2 = () => {
+            return {name: "POLA"}
+        }
+        console.log(getObj2());
+
+        let user = {
+            name: "Kasia",
+            city: "CK",
+            printInfo: function() {
+                setTimeout( () => {
+                    console.log(this.name, this.city); // Kasia CK
+                } ,100);
+            }
+        };
+        user.printInfo();
+    </script>
+</body>
+</html>

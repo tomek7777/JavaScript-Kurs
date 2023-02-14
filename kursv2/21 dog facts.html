@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background: white;
+            overflow: hidden;
+        }
+       
+        #content-img {
+            height: 80vh;
+        }
+        #fact {
+            margin: 10px;
+            padding: 10px;
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="" alt="" id="content-img">
+        <div id="fact"></div>
+        <button id="next-fact">Kliknij</button>
+    </div>
+    <script>
+        getContent();
+        document.getElementById("next-fact")
+            .addEventListener("click", function(){
+                getContent();
+        })
+        async function getContent(){
+            const apiUrl = "https://some-random-api.ml/animal/dog";
+            
+            const data = await fetch(apiUrl);
+            const dataJson = await data.json();
+            console.log(data);
+            
+            processData(dataJson);
+        }
+
+        function processData(data) {
+            const imgSrc = data.image;
+            const fact = data.fact
+            updateDOM(imgSrc, fact);
+        }
+
+        function updateDOM(imgSrc, fact) {
+            const img = document.getElementById("content-img");
+            const factDiv = document.getElementById("fact");
+            img.src = imgSrc;
+            factDiv.innerHTML = fact;
+
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            background: lightsteelblue;
+            overflow: hidden;
+        }
+
+        .container{
+            text-align: center;
+        }
+
+        #content-preload {
+            /* display: none; */
+            height: 20vh;
+        }
+
+        #content {
+            height: 60vh;
+        }
+        #text {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="" id="content-preload">
+        <img src="" id="content">
+        <div id="text">Test</div>
+    </div>
+
+    <script>
+        const randomMeme = {
+            contentPreload: document.getElementById("content-preload"),
+            content: document.getElementById("content"),
+            text: document.getElementById("text"),
+
+            init:  function () {
+                console.log("App Started")
+                this.getContent();
+            },
+
+            getContent: async function() {
+                const apiUrl = "https://some-random-api.ml/animal/dog";
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                this.preloadMeme(data);
+            },
+
+            preloadMeme: function(data) {
+                const imgSrc = data.image;
+                const text = data.fact;
+
+                this.contentPreload.src = imgSrc;
+
+                this.showMeme(data);
+            },
+
+            showMeme: function (data) {
+                console.log(data);
+                const imgSrc = data.image;
+                const text = data.fact;
+
+                this.content.src = imgSrc;
+                this.text.innerHTML = text;
+            }
+        };
+
+        randomMeme.init();
+
+    </script>
+</body>
+</html>
